@@ -1,7 +1,7 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-const DetailedTaskView = ({ task }) => {
+const DetailedTaskView = ({ task}) => {
     return (
         <Grid sx={{ width: '100%' }}>
             {task ? (
@@ -16,7 +16,7 @@ const DetailedTaskView = ({ task }) => {
                     />
                     <CardContent>
                         <Typography variant="h6">Details of Selected Task:</Typography>
-                        <Typography>Title: {task.heading}</Typography>
+                        <Typography>Title: {task.headings}</Typography>
                         <Typography
                             sx={{
                                 maxWidth: '100%', // Set the maximum width
@@ -27,7 +27,11 @@ const DetailedTaskView = ({ task }) => {
                                 textOverflow: 'ellipsis' // Handle text overflow with ellipsis
                             }}
                         >
-                            Description: {task.description}
+                            Description: {task.descriptions}
+                            <br />
+                            time: {task.time}
+                            <br />
+                            date: {task.date}
                         </Typography>
                         {/* Render other details */}
                     </CardContent>

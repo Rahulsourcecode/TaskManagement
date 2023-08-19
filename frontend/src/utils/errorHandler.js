@@ -1,16 +1,17 @@
-// const { showNotification } = require("./notifications")
+import { toast } from 'react-toastify';
 
-exports.errorHandler = (controller) => async (data) => {
+const errorHandler = (controller) => async (data) => {
     try {
-       const res =  await controller(data)
-        if(res?.data){
-            // showNotification(res?.data?.message , 'success','success')
+        const res = await controller(data)
+        if (res?.data) {
+            toast(res?.data?.message)
             return res
-        } 
+        }
     } catch (error) {
         const errorMessage = error?.response?.data?.message || error.message
-        console.error('Error '+ errorMessage)
-        // showNotification(errorMessage)
-        return 
+        console.error('Error ' + errorMessage)
+        toast(errorMessage)
+        return
     }
 }
+export default errorHandler
